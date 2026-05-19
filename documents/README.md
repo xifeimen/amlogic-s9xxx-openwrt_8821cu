@@ -298,7 +298,7 @@ Currently, the maximum retention period for GitHub Actions artifacts is 90 days,
     body: |
       This is OpenWrt firmware for Amlogic s9xxx tv box
       * Firmware information
-      Default IP: 192.168.1.1
+      Default IP: 192.168.20.1
 
 
       Default username: root
@@ -372,7 +372,7 @@ For more instructions on the plugin, see: [https://github.com/ophub/luci-app-aml
 
 1. For the `Rockchip` platform, please refer to the introduction in the [Chapter 8](https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/documents/README.md#8-installing-armbian-to-emmc) of the instruction manual, which is the same as the Armbian installation method.
 
-2. For the `Amlogic` and `Allwinner` platforms, use tools like [Rufus](https://rufus.ie/) or [balenaEtcher](https://www.balena.io/etcher/) to write the firmware into the USB, then insert the USB with the firmware into the box. Access the default IP of OpenWrt from the browser: 192.168.1.1 → `Log in to OpenWrt using the default account` → `System Menu` → `Amlogic Treasure Box` → `Install OpenWrt`.
+2. For the `Amlogic` and `Allwinner` platforms, use tools like [Rufus](https://rufus.ie/) or [balenaEtcher](https://www.balena.io/etcher/) to write the firmware into the USB, then insert the USB with the firmware into the box. Access the default IP of OpenWrt from the browser: 192.168.20.1 → `Log in to OpenWrt using the default account` → `System Menu` → `Amlogic Treasure Box` → `Install OpenWrt`.
 
 ### 8.3 Install the Docker Version of OpenWrt
 
@@ -669,7 +669,7 @@ Based on the situation of your own device, there are two methods to use: initial
 - Install the ADB tool: Download [adb](https://github.com/ophub/kernel/releases/tag/tools) and unzip it, copy the three files `adb.exe`, `AdbWinApi.dll`, `AdbWinUsbApi.dll` to both the `system32` and `syswow64` folders in the `c://windows/` directory, then open the `cmd` command panel, use the `adb --version` command, if it shows something, it means you can use it now.
 - Enter `cmd` command mode. Type the `adb connect 192.168.1.137` command (modify the IP according to your box, you can check it in the router device that the box is connected to), if the connection is successful, it will display `connected to 192.168.1.137:5555`.
 - Type the `adb shell reboot update` command, the box will restart and boot from the USB/TF/SD you inserted, access the firmware IP address from the browser, or SSH access to enter the firmware.
-- Login to the OpenWrt system: Directly connect your box to your computer → Turn off the WIFI option of the computer, only use the wired network card → Set the network of the wired network card to the same segment as OpenWrt, if the default IP of OpenWrt is: `192.168.1.1`, you can set the computer's IP to `192.168.1.2`, the subnet mask is set to `255.255.255.0`, besides these 2 options, no other options need to be set. Then you can enter OpenWrt from the browser. The default IP: `192.168.1.1`, default account: `root`, default password: `password`.
+- Login to the OpenWrt system: Directly connect your box to your computer → Turn off the WIFI option of the computer, only use the wired network card → Set the network of the wired network card to the same segment as OpenWrt, if the default IP of OpenWrt is: `192.168.20.1`, you can set the computer's IP to `192.168.1.2`, the subnet mask is set to `255.255.255.0`, besides these 2 options, no other options need to be set. Then you can enter OpenWrt from the browser. The default IP: `192.168.20.1`, default account: `root`, default password: `password`.
 
 #### 10.10.2 Reinstallation of OpenWrt System
 

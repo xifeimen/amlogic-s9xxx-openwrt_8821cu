@@ -14,8 +14,8 @@
 
 | 系统名称        | 默认账号 | 默认密码  | SSH 端口 | IP 地址 |
 | -------------- | ------- | ------- | ------- | ------- |
-| 🛜 [OpenWrt.OS](https://github.com/ophub/amlogic-s9xxx-openwrt/releases) | root | password | 22 | 192.168.1.1 |
-| 🐋 [OpenWrt.Docker](https://hub.docker.com/u/ophub) | root | password | 22 | 192.168.1.1 |
+| 🛜 [OpenWrt.OS](https://github.com/ophub/amlogic-s9xxx-openwrt/releases) | root | password | 22 | 192.168.20.1 |
+| 🐋 [OpenWrt.Docker](https://hub.docker.com/u/ophub) | root | password | 22 | 192.168.20.1 |
 
 ## 支持的设备列表
 
@@ -61,11 +61,11 @@
 
 1. `Rockchip` 平台的安装方法请查看说明文档中的 [第 8 章节](https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/documents/README.cn.md) 的介绍，和 Armbian 的安装方法相同。
 
-2. `Amlogic` 和 `Allwinner` 平台，使用 [Rufus](https://rufus.ie/) 或者 [balenaEtcher](https://www.balena.io/etcher/) 等工具将固件写入 USB 里，然后把写好固件的 USB 插入盒子。浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `安装 OpenWrt` ，在支持的设备下拉列表中选择你的盒子，点击 `安装 OpenWrt` 按钮进行安装。
+2. `Amlogic` 和 `Allwinner` 平台，使用 [Rufus](https://rufus.ie/) 或者 [balenaEtcher](https://www.balena.io/etcher/) 等工具将固件写入 USB 里，然后把写好固件的 USB 插入盒子。浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `安装 OpenWrt` ，在支持的设备下拉列表中选择你的盒子，点击 `安装 OpenWrt` 按钮进行安装。
 
 - ### 升级 OpenWrt 系统或内核
 
-浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) →  `使用账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `手动上传更新 / 在线下载更新`
+浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) →  `使用账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `手动上传更新 / 在线下载更新`
 
 如果选择 `手动上传更新` [OpenWrt 固件](https://github.com/ophub/amlogic-s9xxx-openwrt/releases)，可以上传编译好的 OpenWrt 固件压缩包，如 openwrt_xxx_k5.15.50.img.gz（推荐上传压缩包，系统会自动解压；若上传解压后的 xxx.img 格式文件，可能因文件过大而导致上传失败）。上传完成后，界面将显示 `更新固件` 操作按钮，点击即可更新。
 
@@ -77,7 +77,7 @@
 
 如果您在使用 `docker` 等内存占用较大的应用时，发现当前盒子的内存不足，可以创建 `swap` 虚拟内存分区，将 `/mnt/*4` 磁盘空间的一定容量虚拟为内存使用。以下命令的输入参数单位为 `GB`，默认值为 `1`。
 
-浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
+浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
 
 ```yaml
 openwrt-swap 1
@@ -87,7 +87,7 @@ openwrt-swap 1
 
 支持通过 `TF/SD/USB` 对盒子的 `EMMC` 分区进行备份与恢复。建议您在全新的盒子上安装 OpenWrt 系统之前，先备份盒子自带的安卓 TV 系统，以便日后需要恢复时使用。
 
-请从 `TF/SD/USB` 启动 OpenWrt 系统，浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
+请从 `TF/SD/USB` 启动 OpenWrt 系统，浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
 
 ```yaml
 openwrt-ddbr
@@ -100,7 +100,7 @@ openwrt-ddbr
 
 - ### 控制 LED 显示
 
-浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
+浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `TTYD 终端` → 输入命令
 
 ```yaml
 openwrt-openvfd
@@ -110,7 +110,7 @@ openwrt-openvfd
 
 - ### 恢复到初始化状态
 
-浏览器访问 OpenWrt 的 IP(例如 192.168.1.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `备份固件配置` → `快照管理` → `初始化快照`，点击 `还原快照` 即可恢复至初始化状态。
+浏览器访问 OpenWrt 的 IP(例如 192.168.20.1) → `使用默认账户登录进入 OpenWrt` → `系统菜单` → `晶晨宝盒` → `备份固件配置` → `快照管理` → `初始化快照`，点击 `还原快照` 即可恢复至初始化状态。
 
 也可以在 `系统菜单` → `TTYD 终端` → 输入命令 `firstboot` 恢复系统至初始化状态。这两种方法的操作结果相同。
 
@@ -143,7 +143,7 @@ sudo apt-get install -y $(cat make-openwrt/scripts/ubuntu2404-make-openwrt-depen
 | -u   | kernelUsage | 设置使用的内核的 `tags 后缀`，如 [stable](https://github.com/ophub/kernel/releases/tag/kernel_stable), [flippy](https://github.com/ophub/kernel/releases/tag/kernel_flippy), [beta](https://github.com/ophub/kernel/releases/tag/kernel_beta)。默认值：`stable` |
 | -k   | Kernel     | 指定 [kernel](https://github.com/ophub/kernel/releases/tag/kernel_stable) 名称，如 `-k 5.10.125`。多个内核使用 `_` 连接，如 `-k 5.10.125_5.15.50`。通过 `-k` 参数自由指定的内核版本仅对使用 `stable/flippy/beta` 的内核有效。其他内核系列如 [rk3588](https://github.com/ophub/kernel/releases/tag/kernel_rk3588) / [rk35xx](https://github.com/ophub/kernel/releases/tag/kernel_rk35xx) / [h6](https://github.com/ophub/kernel/releases/tag/kernel_h6) 等只能使用特定内核。  |
 | -a   | AutoKernel | 设置是否自动采用同系列最新版本内核。当为 `true` 时，将自动在内核库中查找在 `-k` 中指定的内核如 5.10.125 的同系列是否有更新的版本，如有 5.10.125 之后的最新版本时，将自动更换为最新版。设置为 `false` 时将编译指定版本内核。默认值：`true` |
-| -p   | IP       | 指定 OpenWrt 系统的默认 IP 地址，例如： `-p 10.1.1.1`。默认值：`192.168.1.1` |
+| -p   | IP       | 指定 OpenWrt 系统的默认 IP 地址，例如： `-p 10.1.1.1`。默认值：`192.168.20.1` |
 | -s   | Size       | 对系统的镜像分区大小进行设置，只设置 ROOTFS 分区大小时可以只指定一个数值，例如： `-s 1024`。需要同时设置 BOOTFS 和 ROOTFS 分区大小时，使用 / 对两个数值进行连接，例如： `-s 256/1024`。默认值：`256/1024` |
 | -n   | BuilderName | 设置 OpenWrt 系统构建者签名。设置签名时请勿包含空格。默认值：`无` |
 
@@ -173,7 +173,7 @@ sudo apt-get install -y $(cat make-openwrt/scripts/ubuntu2404-make-openwrt-depen
     openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
     openwrt_board: s905x3_s905x2_s905x_s905w_s905d_s922x_s912
     openwrt_kernel: 6.12.y_6.18.y
-    openwrt_ip: 192.168.1.1
+    openwrt_ip: 192.168.20.1
 ```
 
 - ### GitHub Actions 输入参数说明
@@ -188,7 +188,7 @@ sudo apt-get install -y $(cat make-openwrt/scripts/ubuntu2404-make-openwrt-depen
 | kernel_usage      | stable            | 设置使用的内核的 `tags 后缀`。功能参考 `-u` |
 | openwrt_kernel    | 6.12.y_6.18.y     | 设置内核版本，功能参考 `-k` |
 | auto_kernel       | true              | 设置是否自动采用同系列最新版本内核。功能参考 `-a` |
-| openwrt_ip        | 192.168.1.1       | 设置 OpenWrt 系统的默认 IP 地址，功能参考 `-p` |
+| openwrt_ip        | 192.168.20.1       | 设置 OpenWrt 系统的默认 IP 地址，功能参考 `-p` |
 | openwrt_size      | 256/1024          | 设置系统 BOOTFS 和 ROOTFS 分区的大小，功能参考 `-s` |
 | openwrt_files     | false             | 添加自定义 OpenWrt 文件。设置后，该目录下的所有文件将被复制到 [common-files](make-openwrt/openwrt-files/common-files) 中。目录结构必须与 OpenWrt 根目录保持一致，以确保文件被正确覆盖到固件中（例如：默认配置文件应存放于 `etc/config/` 子目录下）。 |
 | builder_name      | 无                | 设置 OpenWrt 系统构建者签名，功能参考 `-n`     |

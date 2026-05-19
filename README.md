@@ -14,8 +14,8 @@ This project, thanks to numerous [contributors](https://github.com/ophub/amlogic
 
 | System Name    | Default Username | Default Password  | SSH Port  | IP Address  |
 | -------------- | ---------------- | ----------------- | --------- | ----------- |
-| 🛜 [OpenWrt.OS](https://github.com/ophub/amlogic-s9xxx-openwrt/releases) | root | password | 22 | 192.168.1.1 |
-| 🐋 [OpenWrt.Docker](https://hub.docker.com/u/ophub) | root | password | 22 | 192.168.1.1 |
+| 🛜 [OpenWrt.OS](https://github.com/ophub/amlogic-s9xxx-openwrt/releases) | root | password | 22 | 192.168.20.1 |
+| 🐋 [OpenWrt.Docker](https://hub.docker.com/u/ophub) | root | password | 22 | 192.168.20.1 |
 
 ## Supported Devices
 
@@ -61,11 +61,11 @@ Choose the OpenWrt firmware corresponding to your TV box model, and refer to the
 
 1. For the `Rockchip` platform, please refer to the [Chapter 8](https://github.com/ophub/amlogic-s9xxx-armbian/blob/main/documents/README.md#8-installing-armbian-to-emmc) of the instruction manual, the installation method is the same as that of Armbian.
 
-2. For the `Amlogic` and `Allwinner` platforms, use tools like [Rufus](https://rufus.ie/) or [balenaEtcher](https://www.balena.io/etcher/) to write the firmware to USB, then insert the USB with the written firmware into the box. Browser access to OpenWrt's IP (e.g. 192.168.1.1) → `Log in to OpenWrt with the default account` → `System Menu` → `Amlogic Treasure Box` → `Install OpenWrt`, select your box from the dropdown list of supported devices, click `Install OpenWrt` button to install.
+2. For the `Amlogic` and `Allwinner` platforms, use tools like [Rufus](https://rufus.ie/) or [balenaEtcher](https://www.balena.io/etcher/) to write the firmware to USB, then insert the USB with the written firmware into the box. Browser access to OpenWrt's IP (e.g. 192.168.20.1) → `Log in to OpenWrt with the default account` → `System Menu` → `Amlogic Treasure Box` → `Install OpenWrt`, select your box from the dropdown list of supported devices, click `Install OpenWrt` button to install.
 
 - ### Update OpenWrt system or kernel
 
-Browser access to OpenWrt's IP (e.g. 192.168.1.1) → `Log in to OpenWrt with your account` → `System Menu` → `Amlogic Treasure Box` → `Manually Upload Update / Online Download Update`
+Browser access to OpenWrt's IP (e.g. 192.168.20.1) → `Log in to OpenWrt with your account` → `System Menu` → `Amlogic Treasure Box` → `Manually Upload Update / Online Download Update`
 
 If you select `Manually Upload Update` [OpenWrt Firmware](https://github.com/ophub/amlogic-s9xxx-openwrt/releases), you can upload the compressed package of the compiled OpenWrt firmware, such as openwrt_xxx_k5.15.50.img.gz (recommended to upload the compressed package, the system will automatically decompress. If you upload the decompressed xxx.img format file, it may fail due to the large file size). After the upload is complete, the interface will display the operation button of `Update Firmware`, click to update.
 
@@ -77,7 +77,7 @@ If you select `Online Download Update` for OpenWrt firmware or kernel, it will b
 
 If you find the available memory insufficient when running memory-intensive applications such as `docker`, you can create a `swap` virtual memory partition, using a portion of the `/mnt/*4` disk space as virtual memory. The unit for the input parameter in the command below is `GB`, with a default value of `1`.
 
-Browser access to OpenWrt's IP (e.g. 192.168.1.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
+Browser access to OpenWrt's IP (e.g. 192.168.20.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
 
 ```yaml
 openwrt-swap 1
@@ -87,7 +87,7 @@ openwrt-swap 1
 
 Supports backing up and restoring the `EMMC` partition via `TF/SD/USB`. It is recommended to back up the original Android TV system before installing OpenWrt on a brand-new box, in case you need to restore it later.
 
-Please boot OpenWrt system from a `SD card` or a `USB flash drive`, then access OpenWrt via browser at its IP (e.g. 192.168.1.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
+Please boot OpenWrt system from a `SD card` or a `USB flash drive`, then access OpenWrt via browser at its IP (e.g. 192.168.20.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
 
 ```yaml
 openwrt-ddbr
@@ -100,7 +100,7 @@ Follow the prompts to enter `b` to backup the system, or enter `r` to restore th
 
 - ### Control LED Display
 
-Browser access to OpenWrt's IP (e.g. 192.168.1.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
+Browser access to OpenWrt's IP (e.g. 192.168.20.1) → `Log in to OpenWrt with the default account` → `System Menu` → `TTYD Terminal` → enter the command
 
 ```yaml
 openwrt-openvfd
@@ -110,7 +110,7 @@ Refer to [LED Screen Display Control Description](https://github.com/ophub/amlog
 
 - ### Restore to Initial State
 
-Browser access to OpenWrt's IP (e.g. 192.168.1.1) → `Log in to OpenWrt with the default account` → `System Menu` → `Amlogic Service` → `Backup Firmware Config` → `Snapshot Management` → `Select Initialize Snapshot`, and click on `Restore Snap` to revert to the initial state.
+Browser access to OpenWrt's IP (e.g. 192.168.20.1) → `Log in to OpenWrt with the default account` → `System Menu` → `Amlogic Service` → `Backup Firmware Config` → `Snapshot Management` → `Select Initialize Snapshot`, and click on `Restore Snap` to revert to the initial state.
 
 Alternatively, you can navigate to `System menu` → `TTYD Terminal` → Enter the command `firstboot` to restore the system to its initial state. Both methods yield the same result.
 
@@ -143,7 +143,7 @@ sudo apt-get install -y $(cat make-openwrt/scripts/ubuntu2404-make-openwrt-depen
 | -u        | kernelUsage   | Set the `tag suffix` of the kernel to be used, such as [stable](https://github.com/ophub/kernel/releases/tag/kernel_stable), [flippy](https://github.com/ophub/kernel/releases/tag/kernel_flippy), [beta](https://github.com/ophub/kernel/releases/tag/kernel_beta). Default: `stable` |
 | -k        | Kernel        | Specify the [kernel](https://github.com/ophub/kernel/releases/tag/kernel_stable) name, such as `-k 5.10.125`. Connect multiple kernels with `_`, such as `-k 5.10.125_5.15.50`. The kernel version freely specified by the `-k` parameter is only valid for kernels using `stable/flippy/beta`. Other kernel series such as [rk3588](https://github.com/ophub/kernel/releases/tag/kernel_rk3588) / [rk35xx](https://github.com/ophub/kernel/releases/tag/kernel_rk35xx) / [h6](https://github.com/ophub/kernel/releases/tag/kernel_h6) can only use specific kernels. |
 | -a        | AutoKernel    | Set whether to automatically adopt the latest version of the same series of kernels. When set to `true`, it will automatically search the kernel library for updates of the same series as the kernel specified in `-k`, such as 5.10.125, and will automatically switch to the latest version if there is a version later than 5.10.125. When set to `false`, it will compile the specified version of the kernel. Default: `true` |
-| -p        | IP            | Set the default IP address of the OpenWrt system, for example: `-p 10.1.1.1`. Default value: `192.168.1.1` |
+| -p        | IP            | Set the default IP address of the OpenWrt system, for example: `-p 10.1.1.1`. Default value: `192.168.20.1` |
 | -s        | Size          | Set the size of the system's image partitions. When setting only the ROOTFS partition size, you can specify a single value, for example: `-s 1024`. When setting both BOOTFS and ROOTFS partition sizes, use / to connect the two values, for example: `-s 256/1024`. The default value is `256/1024` |
 | -n        | BuilderName   | Set the signature of the OpenWrt system builder. Do not include spaces when setting signatures. Default: `none` |
 
@@ -173,7 +173,7 @@ You can modify the related personalized firmware configuration files in the [con
     openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
     openwrt_board: s905x3_s905x2_s905x_s905w_s905d_s922x_s912
     openwrt_kernel: 6.12.y_6.18.y
-    openwrt_ip: 192.168.1.1
+    openwrt_ip: 192.168.20.1
 ```
 
 - ### GitHub Actions Input Parameters Explanation
@@ -188,7 +188,7 @@ These parameters correspond to the `local packaging command`, please refer to th
 | kernel_usage   | stable        | Set the `tags suffix` of the kernel to be used, functionality refers to `-u` |
 | openwrt_kernel | 6.12.y_6.18.y | Set the kernel version, functionality refers to `-k` |
 | auto_kernel    | true          | Set whether to automatically adopt the latest version of the same series of kernels, functionality refers to `-a` |
-| openwrt_ip     | 192.168.1.1   | Set the default IP address of the OpenWrt system, functionality refers to `-p` |
+| openwrt_ip     | 192.168.20.1   | Set the default IP address of the OpenWrt system, functionality refers to `-p` |
 | openwrt_size   | 256/1024      | Set the size of the system BOOTFS and ROOTFS partitions, function reference `-s` |
 | openwrt_files  | false         | Adds custom OpenWrt files. If set, all files in this directory will be copied to [common-files](make-openwrt/openwrt-files/common-files). The directory structure must mirror the OpenWrt root directory to ensure files are correctly overlaid(e.g., default configuration files should be placed under `etc/config/`). |
 | builder_name   | None          | Set the signature of the OpenWrt system builder, functionality refers to `-n` |

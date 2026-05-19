@@ -37,7 +37,7 @@ inputs:
   openwrt_ip:
     description: "Set the rootfs IP address."
     required: false
-    default: "192.168.1.1"
+    default: "192.168.20.1"
   openwrt_files:
     description: "Add custom OpenWrt files."
     required: false
